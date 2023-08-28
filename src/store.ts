@@ -1,7 +1,8 @@
 import { configureStore } from '@reduxjs/toolkit'
+import blogReducer from 'pages/blog/components/blog.reducer'
 
-const store = configureStore({
-    reducer: {}
+export const store = configureStore({
+    reducer: { blog: blogReducer }
 })
 
 // Laasy RootState và AppDispatch từ store của chúng ta
