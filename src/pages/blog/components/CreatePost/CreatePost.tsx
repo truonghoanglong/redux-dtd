@@ -1,4 +1,17 @@
+import { useState } from 'react'
+import { Post } from 'types/blog.type'
+
+const initialState:Post = {
+    id: '',
+    description: '',
+    featuredImage: '',
+    publishDate: '',
+    published: false,
+    title: ''
+}
+
 const CreatePost = () => {
+    const [formData, setFormData] = useState<Post>(initialState)
     return (
         <form>
             <div className='mb-6'>
@@ -14,6 +27,13 @@ const CreatePost = () => {
                     className='block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:outline-none focus:ring-blue-500'
                     placeholder='Title'
                     required
+                    value={formData.title}
+                    onChange={(e) =>
+                        setFormData((prev) => ({
+                            ...prev,
+                            title: e.target.title
+                        }))
+                    }
                 />
             </div>
             <div className='mb-6'>
